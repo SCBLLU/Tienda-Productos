@@ -1,8 +1,18 @@
 <?php
-include 'Bases\config.php';
-include 'Bases\conexion.php';
+include 'Bases/config.php';
+include 'Bases/conexion.php';
 include 'carrito.php';
+
+session_start();
+if (!isset($_SESSION['usuario'])) {
+    // El usuario no está autenticado, redirige al inicio de sesión
+    header('Location: login.php');
+    exit;
+}
+$usuario = $_SESSION['usuario'];
+
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -12,6 +22,8 @@ include 'carrito.php';
     <title>Pago</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="Diseño/estilo.css">
+    <script src="https://kit.fontawesome.com/6305bb531f.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -20,9 +32,21 @@ include 'carrito.php';
             <h4>Pago</h4>
         </div>
         <ul class="nav-links">
-            <a href="index.php">Inicio</a>
-            <a href="#">Contacto</a>
-            <a href="https://maps.app.goo.gl/bL8W1KFXjx3vAX78A" target="_blank">Ubicación</a>
+            <li><a href="perfil.php"><i class="fa-solid fa-house" style="color: #ffffff;"></i> Tienda</a></li>
+            <li><a href="mostrarCarrito.php"><i class="fa-solid fa-backward" style="color: #ffffff;"></i> Mis Productos</a></li>
+
+            <?php if (isset($_SESSION['usuario'])) { ?>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user" style="color: #ffffff;"></i> <span style="color: gray;"><?php echo $usuario['username']; ?></span> <!-- Nombre de usuario rojo -->
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li class="text-center align-bottom custom-dropdown-item"> <a href="cerrar_sesion.php" class="custom-logout-btn">Cerrar Sesión</a> </li>
+                    </ul>
+                </li>
+            <?php } else { ?>
+                <li><a href="login.php">Iniciar Sesión</a></li>
+            <?php } ?>
 
         </ul>
         <div class="burger">
@@ -134,11 +158,12 @@ include 'carrito.php';
         </div>
     </div>
 
+    <!-- Mis scripts -->
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="scripts.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
 </body>
 

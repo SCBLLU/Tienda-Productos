@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-09-2023 a las 00:53:28
+-- Tiempo de generación: 01-10-2023 a las 08:45:15
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -40,14 +40,14 @@ CREATE TABLE `tblproductos` (
 --
 
 INSERT INTO `tblproductos` (`ID`, `Nombre`, `Precio`, `Descripcion`, `Imagen`) VALUES
-(1, 'Suéter Negro', 70.00, '', 'assets\\Ropa\\Ropa-1.jpeg'),
-(2, 'Suéter negro con gris', 80.00, '', 'assets\\Ropa\\Ropa-2.jpeg'),
-(3, 'Suéter gris con negro', 50.00, '', 'assets\\Ropa\\Ropa-3.jpeg'),
-(5, 'Zapatos Blanco', 150.00, '', 'assets\\Ropa\\Ropa-4.jpeg'),
-(6, 'Zapatos negros', 120.00, '', 'assets\\Ropa\\Ropa-5.jpeg'),
-(7, 'Zapatos Naranjas', 180.00, '', 'assets\\Ropa\\Ropa-6.jpeg'),
-(8, 'Camisa Negra', 60.00, '', 'assets\\Ropa\\Ropa-7.jpeg'),
-(9, 'Camisa Roja', 50.00, '', 'assets\\Ropa\\Ropa-8.jpeg');
+(1, 'Sweater Black', 40.00, '', 'assets\\Ropa\\Ropa-1.jpeg'),
+(2, 'Sweater One Life', 50.00, '', 'assets\\Ropa\\Ropa-2.jpeg'),
+(3, 'Sweater Nike V.Gray', 50.00, '', 'assets\\Ropa\\Ropa-3.jpeg'),
+(5, 'Nike One Dark', 120.00, '', 'assets\\Ropa\\Ropa-4.jpeg'),
+(6, 'Nike Lite Dark', 90.00, '', 'assets\\Ropa\\Ropa-5.jpeg'),
+(7, 'Nike Jungle', 100.00, '', 'assets\\Ropa\\Ropa-6.jpeg'),
+(8, 'Jordan Dark', 25.00, '', 'assets\\Ropa\\Ropa-7.jpeg'),
+(9, 'Jordan Red', 20.00, '', 'assets\\Ropa\\Ropa-8.jpeg');
 
 --
 -- Índices para tablas volcadas

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-10-2023 a las 08:45:02
+-- Tiempo de generación: 01-10-2023 a las 08:45:51
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -24,16 +24,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbldetalleventa`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `tbldetalleventa` (
-  `ID` int(11) NOT NULL,
-  `IDVENTA` int(11) DEFAULT NULL,
-  `IDPRODUCTO` int(11) DEFAULT NULL,
-  `PRECIOUNITARIO` decimal(10,2) DEFAULT NULL,
-  `CANTIDAD` int(11) DEFAULT NULL,
-  `DESCARGADO` int(11) DEFAULT NULL
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
 
 --
@@ -41,20 +41,22 @@ CREATE TABLE `tbldetalleventa` (
 --
 
 --
--- Indices de la tabla `tbldetalleventa`
+-- Indices de la tabla `usuarios`
 --
-ALTER TABLE `tbldetalleventa`
-  ADD PRIMARY KEY (`ID`);
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `tbldetalleventa`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
-ALTER TABLE `tbldetalleventa`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

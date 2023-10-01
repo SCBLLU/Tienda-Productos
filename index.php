@@ -12,6 +12,8 @@ include 'carrito.php';
     <title>Inicio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="Diseño/estilo.css">
+    <script src="https://kit.fontawesome.com/6305bb531f.js" crossorigin="anonymous"></script>
+
     <style>
         /* Aplica estilos al input para alinear el texto al centro */
         #cantidad {
@@ -24,13 +26,13 @@ include 'carrito.php';
 
     <nav>
         <div class="logo">
-            <h4>Menu</h4>
+            <h4>Inicio</h4>
         </div>
         <ul class="nav-links">
-            <a href="index.php">Inicio</a>
-            <a href="mostrarCarrito.php">Carrito (<?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?>)</a>
-            <a href="#">Contacto</a>
-            <a href="https://maps.app.goo.gl/bL8W1KFXjx3vAX78A" target="_blank">Ubicación</a>
+            <a href="Login.php"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i> Productos (<?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?>)</a>
+            <a href="#"><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> Contactanos</a>
+            <a href="Login.php"><i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Iniciar Cesion</a>
+
 
         </ul>
         <div class="burger">
@@ -126,11 +128,7 @@ include 'carrito.php';
                     <?php } ?>
                 </div>
             </div>
-
-
-
         </div>
-
     </div>
 
     </div>
