@@ -125,26 +125,31 @@ if (isset($_POST['btnAccion']) && $_POST['btnAccion'] === 'Eliminar') {
                     <form action="pagar.php" method="POST">
                         <form action="pagar.php" method="POST">
                             <div class="alert alert-success" id="formulario" role="alert">
-                                <h2>Ingrese sus datos para realizar el envío</h2>
+                                <h2 align="center">Ingrese sus datos para realizar el envío</h2>
                                 <form method="POST" action="pagar.php">
                                     <hr>
-                                    <div class="form-group">
-                                        <label for="nombre_contacto">Nombre del contacto:</label><br>
-                                        <br><input type="text" name="nombre" id="nombre_contacto" placeholder="Ingrese su nombre" class="form-control" required>
-                                    </div><br>
-                                    <div class="form-group">
-                                        <label for="correo_contacto">Correo de contacto:</label><br>
-                                        <br><input type="text" name="email" id="correo_contacto" placeholder="Ingrese su correo electronico" class="form-control" required>
-                                    </div><br>
-                                    <div class="form-group">
-                                        <label for="telefono_contacto">Teléfono de contacto:</label><br>
-                                        <br><input type="text" name="telefono" id="telefono_contacto" placeholder="Ingrese su numero de contacto" class="form-control" required>
+                                    <div class="form__group field">
+                                        <input type="text" name="nombre" id="nombre_contacto" placeholder="Ingrese su nombre" class="form__field" required>
+                                        <label for="nombre_contacto" class="form__label">Nombre del contacto:</label>
+
+                                    </div>
+
+                                    <div class="form__group field">
+                                        <input type="text" name="email" id="correo_contacto" placeholder="Ingrese su correo electronico" class="form__field" required>
+                                        <label for="correo_contacto" class="form__label">Correo de contacto:</label>
+
+                                    </div>
+
+                                    <div class="form__group field">
+                                        <input type="text" name="telefono" id="telefono_contacto" placeholder="Ingrese su numero de contacto" class="form__field" required>
+                                        <label for="telefono_contacto" class="form__label">Teléfono de contacto:</label>
+
                                     </div>
                                     <hr>
                                     <div class="container-fluid" align="center">
-                                        <h3 align="center"><i class="fa-solid fa-arrow-down" style="color: #292d3e;"></i> Seleccione la ubicación de entrega en el mapa <i class="fa-solid fa-arrow-down" style="color: #292d3e;"></i></h3>
+                                        <h3 align="center"><i class="fa-solid fa-arrow-down" style="color: #fff;"></i> Seleccione la ubicación de entrega en el mapa <i class="fa-solid fa-arrow-down" style="color: #fff;"></i></h3>
                                         <br>
-                                        <div id="map" style="height: 400px; width: 80%;"></div>
+                                        <div id="map" style="height: 400px; width: 100%;"></div>
                                         <br>
                                         <hr>
                                         <input type="text" id="latitud" name="latitud" readonly />
@@ -208,7 +213,7 @@ if (isset($_POST['btnAccion']) && $_POST['btnAccion'] === 'Eliminar') {
                             position: event.latLng,
                             map: map,
                             icon: {
-                                url: 'assets/Iconos/Nike-Logo.jpeg', // Reemplaza esto con la URL de tu imagen de flecha
+                                url: 'assets/Iconos/map-pin.svg', // Reemplaza esto con la URL de tu imagen de flecha
                                 scaledSize: new google.maps.Size(30, 30),
                                 origin: new google.maps.Point(0, 0),
                                 anchor: new google.maps.Point(15, 15)

@@ -50,11 +50,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
+
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            background: linear-gradient(180deg, #0a1525, #0a1525 20%, #162b44 80%, #162b44);
+        }
+    </style>
+
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h2 class="text-center"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Crear Nuevo Usuario</h2>
-                <h6 class="text-center">Por favor ingrese los datos solisitados.</h6>
+                <p class="text-center">Ingrese los datos solicitados.</p>
 
                 <br>
                 <?php if (!empty($error_message)) : ?>
@@ -62,27 +71,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <?php echo $error_message; ?>
                     </div>
                 <?php endif; ?>
+
                 <form action="crear_usuario.php" method="POST">
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Nombre de Usuario</label>
-                        <input type="text" class="form-control" id="username" name="username" required placeholder="Ingrese su nombre de usuario">
+                    <div class="form__group field">
+                        <input type="text" class="form__field" id="nombre" name="username" required placeholder="Ingrese su nombre de usuario">
+                        <label for="nombre" class="form__label">Nombre de Usuario</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="password" name="password" required placeholder="Ingrese su contraseña">
+                    <div class="form__group field">
+                        <input type="password" class="form__field" id="password" name="password" required placeholder="Ingrese su contraseña">
+                        <label for="nombre" class="form__label">Contraseña</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre Completo</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Ingrese su nombre completo">
+                    <div class="form__group field">
+                        <input type="text" class="form__field" id="nombre_completo" name="nombre" required placeholder="Ingrese su nombre completo">
+                        <label for="nombre_completo" class="form__label">Nombre Completo</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="email" name="email" required placeholder="Ingrese su correo electronico">
+                    <div class="form__group field">
+                        <input type="email" class="form__field" id="correo" name="email" required placeholder="Ingrese su correo electrónico">
+                        <label for="correo" class="form__label">Correo Electrónico</label>
                     </div>
+                    <br>
                     <div class="Botton">
                         <button class="Login" type="submit">Crear usuario</button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>

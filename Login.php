@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     } else {
         // Usuario no encontrado o contraseña incorrecta
-        $error_message = "Usuario o contraseña incorrectos. Intente de nuevo...";
+        $error_message = "Usuario o contraseña incorrectos.";
     }
 }
 ?>
@@ -37,30 +37,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="Diseño/estilo.css">
     <script src="https://kit.fontawesome.com/6305bb531f.js" crossorigin="anonymous"></script>
 
+
+
 </head>
 
-<body style="background-color: #5b648a;">
+<body>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            background: linear-gradient(180deg, #0a1525, #0a1525 20%, #162b44 80%, #162b44);
+        }
+    </style>
 
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <h2 class="text-center"><i class="fa-solid fa-key" style="color: #ffffff;"></i> Iniciar Cesion</h2>
                 <br>
-                <h6 class="text-center">Ingrese sus credenciales o cree un usuario.</h6>
+                <h2 class="text-center"><i class="fa-solid fa-key" style="color: #ffffff;"></i> Iniciar Cesion</h2>
+
+                <p class="text-center">Ingrese sus credenciales o cree un usuario.</p>
                 <?php if (!empty($error_message)) : ?>
                     <div class="alert alert-danger" role="alert">
                         <?php echo $error_message; ?>
                     </div>
+
                 <?php endif; ?>
                 <form action="" method="POST">
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Usuario</label>
-                        <input type="text" class="form-control" id="username" name="username" required placeholder="Ingrese su usuario">
+
+
+                    <div class="form__group field">
+                        <input type="input" class="form__field" placeholder="Name" name="username" id='username' required />
+                        <label for="name" class="form__label">Usuario</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="password" name="password" required placeholder="Ingrese su contraseña">
+
+                    <div class="form__group field">
+                        <input type="input" class="form__field" placeholder="password" name="password" id='password' required />
+                        <label for="name" class="form__label">Contraseña</label>
                     </div>
+
+                    <br>
+
                     <div class="Botton">
                         <button class="Login" type="submit">Iniciar sesión</button>
                     </div>

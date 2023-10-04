@@ -9,7 +9,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background: #5b648a;
+    background: linear-gradient(180deg, #0a1525, #0a1525 20%, #162b44 80%, #162b44);
 }
 
 
@@ -33,7 +33,7 @@ nav {
 .nav-links {
     display: flex;
     justify-content: space-around;
-    width: 70%;
+    width: 80%;
     text-transform: uppercase;
 }
 
@@ -43,7 +43,7 @@ nav {
     text-decoration: none;
     color: #fff;
     border-bottom: 2px solid transparent;
-    transition: 0.5s ease;
+    transition: 0.3s ease;
     transform: translateX(0%);
 }
 
@@ -61,7 +61,7 @@ nav {
     height: 3px;
     background: #fff;
     margin: 5px;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 
 }
 
@@ -91,7 +91,9 @@ nav {
     /* Cambio de color al pasar el ratón (mismo color de fondo) */
 }
 
-
+#Inicio-text {
+    color: #ffffff;
+}
 
 /* Carusel de imágenes */
 
@@ -124,19 +126,61 @@ nav {
     background-color: #292d3e;
 }
 
+.carousel-inner {
+    position: relative;
+    overflow: hidden;
+    /* Esto oculta el desbordamiento de las imágenes durante la transición */
+}
+
+.carousel-item {
+    transition: transform 0.5s ease;
+    /* Agrega una transición suave de 0.5 segundos a la propiedad 'transform' */
+}
+
+.carousel-item {
+    transition: transform 0.5s ease;
+    transform: translateX(0);
+    /* Inicialmente, la imagen se muestra en su posición normal */
+}
+
+.carousel-item.active {
+    transform: translateX(0);
+    /* La imagen activa permanece en su posición normal */
+}
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active.carousel-item-start,
+.carousel-item.active.carousel-item-end {
+    transform: translateX(100%);
+    /* Las imágenes anteriores y siguientes se desplazarán hacia la derecha */
+}
+
+
+
+
+
+/* Estilos generales para las cards */
+
 .ropa-box {
     background-color: #292d3e;
     padding: 30px;
     border-radius: 40px;
-    color: #c6cbd1;
+    color: #ffffff;
 }
 
-/* Estilos generales para las cards */
 .card {
     background-color: #393f56;
     border-radius: 20px;
     margin-bottom: 20px;
     padding: 20px;
+    transition: transform 0.2s ease;
+    /* Agrega una transición suave de 0.2 segundos en la propiedad 'transform' */
+}
+
+.card:hover {
+    transform: scale(1.05);
+    /* Aumenta ligeramente el tamaño de la tarjeta al pasar el mouse por encima */
 }
 
 #Producto {
@@ -182,13 +226,15 @@ nav {
     color: #ffffff;
 }
 
+/* Inicio de cesion y regristro */
+
 .mt-5 {
     border-radius: 50px;
     padding: 20px 20px;
 }
 
 .col-md-6 {
-    background-color: #292d3e;
+    background-color: #162b44;
     border-radius: 50px;
     padding: 20px 20px;
 }
@@ -225,38 +271,118 @@ nav {
     text-align: center;
 }
 
-.Login {
-    padding: 15px 30px;
-    border-radius: 50px;
-    background-color: #7e57c2;
-    color: #ffffff;
-}
-
 #map {
     border-radius: 40px;
 }
 
-
-.form-group {
-    background-color: #625cb9;
-    padding: 20px 20px;
-    border-radius: 20px;
+/* Estilos para el botón */
+.Login {
+    background-color: #0a1525;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.2s, transform 0.4s;
+    /* Agregamos transform a la transición */
 }
 
-.form-group label {
-    color: #ffffff;
-}
-
-.form-control {
-    background-color: #fcfcfd;
-    padding: 5px 10px;
+.Login:hover {
+    background-color: #292d3e;
+    transform: scale(1.10);
+    /* Agrandamos el botón al 105% de su tamaño original */
 
 }
 
-.container-fluid {
-    background-color: #625cb9;
-    padding: 10px 10px;
-    border-radius: 20px;
+
+
+/* Formularios */
+
+:root {
+    --primary: #ffffff;
+    --secondary: #24497b;
+    --white: #818181;
+    --gray: #9b9b9b;
+}
+
+/* Estilos generales para .form__group */
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Estilos generales para .form__field */
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid var(--gray);
+    outline: 0;
+    font-size: 1.3rem;
+    color: var(--white);
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+/* Placeholder */
+.form__field::placeholder {
+    color: transparent;
+}
+
+/* Label animado */
+.form__field:placeholder-shown~.form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+}
+
+/* Estilo de la etiqueta del campo */
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: var(--gray);
+}
+
+/* Estilo del campo enfocado */
+.form__field:focus~.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, var(--primary), var(--secondary));
+    border-image-slice: 1;
+}
+
+/* Reset de estilo para campos requeridos e inválidos */
+.form__field:required,
+.form__field:invalid {
+    box-shadow: none;
+}
+
+/* Estilos para el enlace "¿No tiene un usuario?" */
+#Subtitulo {
+    color: #c5c5c5;
+}
+
+#Subtitulo:hover {
+    color: #11998e;
+    text-decoration: none;
 }
 
 
@@ -264,7 +390,7 @@ nav {
 /* Banner Legal */
 .legal-box {
     width: 100%;
-    background-color: #393f56;
+    background-color: #292d3e;
     /* Cambia el color de fondo según tus preferencias */
     padding: 20px;
     /* Ajusta el espaciado interior según tus preferencias */
@@ -333,12 +459,24 @@ nav {
     border-radius: 10px;
     background-color: #ffca2c;
     color: #000000;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.Proceso-pago:hover {
+    background-color: #ffca2c;
+    transform: scale(1.05);
+    /* Agrandamos el botón al 105% de su tamaño original */
+
 }
 
 
 #formulario {
-    background-color: #747fb0;
-    color: #292d3e;
+    background-color: #060f33;
+    color: #ffffff;
+    border-radius: 50px;
+    border: none;
 }
 
 /* Tabla */

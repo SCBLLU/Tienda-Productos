@@ -45,9 +45,8 @@ include 'carrito.php';
     <div>
         <div class="container">
             <div><br>
-                <h2 align="center">
-                    Bienvenidos
-                </h2>
+                <h2 class="fw-bold" align="center" id="Inicio-text">
+                    Bienvenidos </h2>
             </div>
 
             <br>
@@ -119,7 +118,7 @@ include 'carrito.php';
 
                                             <br>
 
-                                            <button type="submit" class="Comprar" name="btnAccion" value="Agregar">Agregar al carrito</button>
+                                            <button type="submit" class="Comprar" name="btnAccion" value="Agregar">Comprar</button>
                                         </form>
                                     </div>
                                 </div>
